@@ -1,0 +1,206 @@
+0000:                      -- 
+0000:                      -- ### Sequence subroutines: ###
+0000:                      -- 
+0000:                      -- # 6 GA UP
+0000:                      -- sub 6_GA_UP
+0000: 031A9001000000000000000000000000000000000000000000000000 --   400 0 0 0 0 0 0 
+001C: 88                   --   0 0 0 0 0 0 frame_0..11 # start state
+001D: 03086400800FC01D800C89 --   100 3968 7616 3200 frame_4_6_7 # servos on
+0028: 03044006001C8A       --   1600 7168 frame_4 # door open
+002F: 0304B80B80228B       --   3000 8832 frame_7 # arm lift
+0036: 0306E803C01600008C   --   1000 5824 0 frame_6_7 # arm servo off / gripper open
+003F: 0304DC05C01D8D       --   1500 7616 frame_6 # close
+0046: 0304E803C0168D       --   1000 5824 frame_6 # arm servo off / gripper open
+004D: 0304DC05C01D8D       --   1500 7616 frame_6 # close
+0054: 03044006C0168D       --   1600 5824 frame_6 # open
+005B: 0304480DC01D8D       --   3400 7616 frame_6 # close
+0062: 0306C800000080228C   --   200 0 8832 frame_6_7 # gripper servo off / gripper arm servo on
+006B: 0403C800008E         --   200 0 0 frame_4_7 # all servos off
+0071: 05                   --   return
+0072:                      -- # 7 start state
+0072:                      -- sub 7_start_state
+0072: 031AF401C019000000008012800F0000000000000000000000000000 --   500 6592 0 0 4736 3968 0 
+008E: 88                   --   0 0 0 0 0 0 frame_0..11 # Frame 0
+008F: 0308F4017D112818FE158F --   500 4477 6184 5630 frame_0_3_4 # Frame 1
+009A: 0306F401C01D800C8C   --   500 7616 3200 frame_6_7 # Frame 2
+00A3: 0308DC05C0198012800F8F --   1500 6592 4736 3968 frame_0_3_4 # Frame 3
+00AE: 030CDC050000000000000000000090 --   1500 0 0 0 0 0 frame_0_3_4_6_7 # Frame 4
+00BD: 05                   --   return
+00BE:                      -- # 8 GA Down
+00BE:                      -- sub 8_GA_Down
+00BE: 031AF401000000000000000000000000000000000000000000000000 --   500 0 0 0 0 0 0 
+00DA: 88                   --   0 0 0 0 0 0 frame_0..11 # Frame 0
+00DB: 0308F401001CC01D642289 --   500 7168 7616 8804 frame_4_6_7 # Frame 1
+00E6: 0304F401800C8B       --   500 3200 frame_7 # Frame 2
+00ED: 0308DC05800F0000000089 --   1500 3968 0 0 frame_4_6_7 # Frame 3
+00F8: 03042C0100008A       --   300 0 frame_4 # Frame 4
+00FF: 05                   --   return
+0100:                      -- # all doors closed and arms down
+0100:                      -- sub all_doors_closed_and_arms_down
+0100: 031AF401800F00000000001D001C0000C01D80220000000000000000 --   500 3968 0 0 7424 7168 0 
+011C: 88                   --   7616 8832 0 0 0 0 frame_0..11 # Frame 0
+011D: 0306E8030000800C8C   --   1000 0 3200 frame_6_7 # lower arms
+0126: 0308DC05C0198012800F8F --   1500 6592 4736 3968 frame_0_3_4 # close all doors
+0131: 030AF401000000000000000091 --   500 0 0 0 0 frame_0_3_4_7 # all servos off
+013E: 05                   --   return
+013F:                      -- # All open and up
+013F:                      -- sub All_open_and_up
+013F: 031A9001000000000000000000000000000000000000000000000000 --   400 0 0 0 0 0 0 
+015B: 88                   --   0 0 0 0 0 0 frame_0..11 # start state
+015C: 030C2C01C0198012800FC01D800C90 --   300 6592 4736 3968 7616 3200 frame_0_3_4_6_7 # all servos on
+016B: 0308D007800F001D001C8F --   2000 3968 7424 7168 frame_0_3_4 # all doors open
+0176: 0304E80380228B       --   1000 8832 frame_7 # arm lift
+017D: 030AE80300000000C016000092 --   1000 0 0 5824 0 frame_0_3_6_7 # arm servo off / gripper open
+018A: 0304DC05C01D8D       --   1500 7616 frame_6 # close
+0191: 0304E803C0168D       --   1000 5824 frame_6 # arm servo off / gripper open
+0198: 0304DC05C01D8D       --   1500 7616 frame_6 # close
+019F: 03044006C0168D       --   1600 5824 frame_6 # open
+01A6: 0304480DC01D8D       --   3400 7616 frame_6 # close
+01AD: 03062C010000000093   --   300 0 0 frame_4_6 # all servos off
+01B6: 05                   --   return
+01B7:                      -- # GA door close
+01B7:                      -- sub GA_door_close
+01B7: 040DC8000000000000000000000000 --   200 0 0 0 0 0 0 
+01C6: 88                   --   0 0 0 0 0 0 frame_0..11 # Frame 0
+01C7: 0304C800001C8A       --   200 7168 frame_4 # Frame 1
+01CE: 03044C04800F8A       --   1100 3968 frame_4 # Frame 2
+01D5: 0304F40100008A       --   500 0 frame_4 # Frame 3
+01DC: 05                   --   return
+01DD:                      -- # GA door open
+01DD:                      -- sub GA_door_open
+01DD: 040DC8000000000000000000000000 --   200 0 0 0 0 0 0 
+01EC: 88                   --   0 0 0 0 0 0 frame_0..11 # Frame 0
+01ED: 0304C800800F8A       --   200 3968 frame_4 # Frame 1
+01F4: 0304D007001C8A       --   2000 7168 frame_4 # Frame 2
+01FB: 0304D00700008A       --   2000 0 frame_4 # Frame 3
+0202: 05                   --   return
+0203:                      -- # GripperArmSequence
+0203:                      -- sub GripperArmSequence
+0203: 031A9001000000000000000000000000000000000000000000000000 --   400 0 0 0 0 0 0 
+021F: 88                   --   0 0 0 0 0 0 frame_0..11 # start state
+0220: 03086400800FC01D800C89 --   100 3968 7616 3200 frame_4_6_7 # servos on
+022B: 03044006001C8A       --   1600 7168 frame_4 # door open
+0232: 0304B80B80228B       --   3000 8832 frame_7 # arm lift
+0239: 0306E803C01600008C   --   1000 5824 0 frame_6_7 # arm servo off / gripper open
+0242: 0304DC05C01D8D       --   1500 7616 frame_6 # close
+0249: 0304E803C0168D       --   1000 5824 frame_6 # arm servo off / gripper open
+0250: 0304DC05C01D8D       --   1500 7616 frame_6 # close
+0257: 03044006C0168D       --   1600 5824 frame_6 # open
+025E: 0304480DC01D8D       --   3400 7616 frame_6 # close
+0265: 0306C800000080228C   --   200 0 8832 frame_6_7 # gripper servo off / gripper arm servo on
+026E: 03048403800C8B       --   900 3200 frame_7 # lower arm
+0275: 0304E803800F8A       --   1000 3968 frame_4 # door close
+027C: 0403C800008E         --   200 0 0 frame_4_7 # all servos off
+0282: 05                   --   return
+0283:                      -- 
+0283:                      -- sub frame_0..11
+0283: 020B2A               --   11 servo
+0286: 020A2A               --   10 servo
+0289: 02092A               --   9 servo
+028C: 02082A               --   8 servo
+028F: 02072A               --   7 servo
+0292: 02062A               --   6 servo
+0295: 02052A               --   5 servo
+0298: 02042A               --   4 servo
+029B: 02032A               --   3 servo
+029E: 02022A               --   2 servo
+02A1: 02012A               --   1 servo
+02A4: 02002A               --   0 servo
+02A7: 08                   --   delay
+02A8: 05                   --   return
+02A9:                      -- 
+02A9:                      -- sub frame_4_6_7
+02A9: 02072A               --   7 servo
+02AC: 02062A               --   6 servo
+02AF: 02042A               --   4 servo
+02B2: 08                   --   delay
+02B3: 05                   --   return
+02B4:                      -- 
+02B4:                      -- sub frame_4
+02B4: 02042A               --   4 servo
+02B7: 08                   --   delay
+02B8: 05                   --   return
+02B9:                      -- 
+02B9:                      -- sub frame_7
+02B9: 02072A               --   7 servo
+02BC: 08                   --   delay
+02BD: 05                   --   return
+02BE:                      -- 
+02BE:                      -- sub frame_6_7
+02BE: 02072A               --   7 servo
+02C1: 02062A               --   6 servo
+02C4: 08                   --   delay
+02C5: 05                   --   return
+02C6:                      -- 
+02C6:                      -- sub frame_6
+02C6: 02062A               --   6 servo
+02C9: 08                   --   delay
+02CA: 05                   --   return
+02CB:                      -- 
+02CB:                      -- sub frame_4_7
+02CB: 02072A               --   7 servo
+02CE: 02042A               --   4 servo
+02D1: 08                   --   delay
+02D2: 05                   --   return
+02D3:                      -- 
+02D3:                      -- sub frame_0_3_4
+02D3: 02042A               --   4 servo
+02D6: 02032A               --   3 servo
+02D9: 02002A               --   0 servo
+02DC: 08                   --   delay
+02DD: 05                   --   return
+02DE:                      -- 
+02DE:                      -- sub frame_0_3_4_6_7
+02DE: 02072A               --   7 servo
+02E1: 02062A               --   6 servo
+02E4: 02042A               --   4 servo
+02E7: 02032A               --   3 servo
+02EA: 02002A               --   0 servo
+02ED: 08                   --   delay
+02EE: 05                   --   return
+02EF:                      -- 
+02EF:                      -- sub frame_0_3_4_7
+02EF: 02072A               --   7 servo
+02F2: 02042A               --   4 servo
+02F5: 02032A               --   3 servo
+02F8: 02002A               --   0 servo
+02FB: 08                   --   delay
+02FC: 05                   --   return
+02FD:                      -- 
+02FD:                      -- sub frame_0_3_6_7
+02FD: 02072A               --   7 servo
+0300: 02062A               --   6 servo
+0303: 02032A               --   3 servo
+0306: 02002A               --   0 servo
+0309: 08                   --   delay
+030A: 05                   --   return
+030B:                      -- 
+030B:                      -- sub frame_4_6
+030B: 02062A               --   6 servo
+030E: 02042A               --   4 servo
+0311: 08                   --   delay
+0312: 05                   --   return
+0313:                      -- 
+
+Subroutines:
+Hex Decimal Address Name
+00  000     0000    6_GA_UP
+01  001     0072    7_START_STATE
+02  002     00BE    8_GA_DOWN
+03  003     0100    ALL_DOORS_CLOSED_AND_ARMS_DOWN
+04  004     013F    ALL_OPEN_AND_UP
+05  005     01B7    GA_DOOR_CLOSE
+06  006     01DD    GA_DOOR_OPEN
+07  007     0203    GRIPPERARMSEQUENCE
+08  008     0283    FRAME_0..11
+09  009     02A9    FRAME_4_6_7
+0A  010     02B4    FRAME_4
+0B  011     02B9    FRAME_7
+0C  012     02BE    FRAME_6_7
+0D  013     02C6    FRAME_6
+0E  014     02CB    FRAME_4_7
+0F  015     02D3    FRAME_0_3_4
+10  016     02DE    FRAME_0_3_4_6_7
+11  017     02EF    FRAME_0_3_4_7
+12  018     02FD    FRAME_0_3_6_7
+13  019     030B    FRAME_4_6
