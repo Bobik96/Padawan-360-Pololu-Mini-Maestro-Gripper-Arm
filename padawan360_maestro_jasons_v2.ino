@@ -255,7 +255,7 @@ void loop() {
   }
 
   // After the controller connects, Blink all the LEDs so we know drives are disengaged at start
-  //Maestro restartscript that sightly opens all body panels, homes all body servos, then closes all body doors==========================================
+  //Maestro restartscript that sightly opens all body panels, sets all body servos to closed position, then closes all body doors==========================================
   if (!firstLoadOnConnect) {
     firstLoadOnConnect = true;
     mp3Trigger.play(21);
